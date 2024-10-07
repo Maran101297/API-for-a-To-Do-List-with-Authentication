@@ -1,0 +1,49 @@
+<%- include('../layout', {
+    title: 'Sign Up',
+    body:`
+    <link rel="stylesheet" href="../../public/css/register.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/css/intlTelInput.css">
+
+    <h2>Registration Form</h2>
+    <p>Please fill in this form to create an account.</p>
+    
+    <!-- Error message div -->
+    <div id="errorMessages" style="color: red; display: none;"></div>
+
+	<form id="signupForm" action="/register" method="POST">
+		<div class="form-group">
+            <label for="username">Username</label>
+            <input type="text"  class="form-control" name="username" placeholder="Enter Username" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="text"  class="form-control"  placeholder="Enter Email" name="email" required>
+  </div>
+
+  <div class="form-group mt-3">
+    <label for="phone">Phone Number</label>
+    <input id="phone" type="tel" class="form-control" name="phone" placeholder="812345678" required>
+       <!-- Hidden field to store the country code -->
+       <input type="hidden" name="phoneCode" id="phoneCode">
+  </div>
+  <div class="form-group">
+    <label for="psw">Password</label>
+    <input type="password" class="form-control"  placeholder="Enter Password" name="password" required>
+  </div>
+
+  <div class="mt-2">
+    <button type="submit" class="btn btn-primary" >Sign up</button>
+  </div>
+ 
+</form>
+    
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/js/intlTelInput.min.js"></script>
+   <script src="../../public/js/Forms/Register.js"></script>
+
+  
+    ` 
+}) %>
+
+
+
+   

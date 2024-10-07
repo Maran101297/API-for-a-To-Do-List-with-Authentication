@@ -1,0 +1,74 @@
+<%- include('../layout', { title: 'Dashboard', body: `
+
+<header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-10">
+              <h2 class="navbar-brand">Todo-App</h2>
+          </div>
+      </div>
+     <div class="col-2">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"><button id="logoutButton" class="btn btn-primary">Logout</button></a>
+        </li>
+      </ul>
+    </div>
+     </div>
+  
+    </div>
+  </nav>
+  </header>
+
+<div id="userInfo" class="text-center mt-5 p-4">
+    <h2>Welcome to the Dashboard</h2>
+</div>
+<div>
+  <div class="text-center">
+    <h2>Create a New Todo</h2>
+    <form id="createTaskForm">
+        <input type="text" id="taskName" placeholder="Task Name" required autocomplete="off" />
+        <input type="text" id="taskDescription" placeholder="Task Description" required  autocomplete="off"/>
+        <select id="taskPriority" required>
+            <option value="">Select Priority</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Add Task</button>
+    </form>
+</div>
+
+    <h2 class="text-center mt-3">Task Details</h2>
+    <table id="taskTable" class="display">
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Task Details</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="taskList">
+            <!-- Tasks will be populated here -->
+        </tbody>
+    </table>
+
+</div>
+<!-- DataTables.net CSS -->
+<link rel="stylesheet" href="//cdn.datatables.net/2.1.7/css/dataTables.dataTables.min.css">
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<!-- DataTables.net JS -->
+<script src="//cdn.datatables.net/2.1.7/js/dataTables.min.js"></script>
+
+<script  src="../../public/js/Forms/dashboard.js" type="module"></script>
+` }) %>

@@ -1,0 +1,11 @@
+{
+    "Form": {
+        "Register": "views/Forms/Register.ejs",
+        "otpForm": "views/Forms/OtpForm.ejs",
+        "Login": "views/Forms/Signin.ejs"
+       
+    },
+    "task": {
+         "dashboard": "views/Forms/dashboard.ejs"
+    }
+}

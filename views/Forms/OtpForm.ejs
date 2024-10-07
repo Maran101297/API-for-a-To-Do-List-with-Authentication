@@ -1,0 +1,26 @@
+<%- include('../layout', {
+    title: 'OTP Verification',
+    body:`
+<div class="container mt-5 pt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="text-center mb-4">Verify Your OTP</h3>
+                    <form id="otpVerificationForm">
+                        <div class="form-group mt-3">
+                            <label for="otp">OTP</label>
+                            <input type="text" class="form-control" id="otp" placeholder="Enter the OTP" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block mt-4">Verify OTP</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../public/js/Forms/otpForm.js"></script>
+
+` }) %>
