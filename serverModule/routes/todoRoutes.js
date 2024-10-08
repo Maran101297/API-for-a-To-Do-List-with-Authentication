@@ -4,7 +4,7 @@ const todoController = require('../controllers/todoController');
 const taskRouter = express.Router();
 const { protect } = require('../middlewares/authMiddleware');
 
-taskRouter.post('/createData', protect, todoController.createTask);
+taskRouter.post('/createTask', protect, todoController.createTask);
 
 taskRouter.get('/showdata', protect, todoController.showTask);
 

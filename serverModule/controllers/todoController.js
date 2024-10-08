@@ -6,11 +6,10 @@ module.exports = {
  
     createTask: async (req, res) => {
         try {
-            const { task, description, priority } = req.body;
+            const { title, description } = req.body;
             const newTask = new Task({
-                task,
+                title,
                 description,
-                priority,
                 status: 'Pending', // Set default status
                 user: req.user.id, // Associate the task with the user
             });
@@ -33,27 +32,7 @@ module.exports = {
             res.status(500).json({ message: 'Failed to retrieve tasks' });
         }
     },
-   
-    //     try {
-    //         const taskId = req.params.id;
-    //         const { task, description, priority, status } = req.body;
 
-    //         const updatedTask = await Task.findByIdAndUpdate(
-    //             taskId,
-    //             { task, description, priority, status },
-    //             { new: true } // Return the updated document
-    //         );
-
-    //         if (!updatedTask) {
-    //             return res.status(404).json({ message: 'Task not found' });
-    //         }
-
-    //         res.status(200).json(updatedTask);
-    //     } catch (error) {
-    //         console.error('Error updating task:', error);
-    //         res.status(500).json({ message: 'Failed to update task' });
-    //     }
-    // },
     updateTask: async (req, res) => {
         try {
             const taskId = req.params.id;

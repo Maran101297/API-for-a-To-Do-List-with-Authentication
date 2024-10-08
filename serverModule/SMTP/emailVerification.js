@@ -9,7 +9,7 @@ module.exports = {
         const mailOptions = {
             from: 'Todo List <maran101297@gmail.com>',
             to: email,
-            subject: 'Welcome to Task Management System Verify Your OTP Code',
+            subject: 'Welcome to Todo Management System Verify Your OTP Code',
             text: `Your OTP code is ${otp}. It will expire in 15 minutes.`
           };
 
@@ -25,7 +25,6 @@ module.exports = {
 }
 
 function createTransport(){
-    console.log(process.env.ADMIN_EMAIL)
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         host: 'smtp.gmail.com',

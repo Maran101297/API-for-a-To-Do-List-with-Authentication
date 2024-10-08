@@ -16,10 +16,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  phone: {
-    type: String,
-    required: true
-  }, 
+
   otp:{
     type: String,
   },
@@ -28,7 +25,7 @@ const userSchema = new mongoose.Schema({
     default: false, // User is not verified until OTP is verified
 },
   tasks: [{
-  type: mongoose.Schema.Types.ObjectId,
+     type: mongoose.Schema.Types.ObjectId,
      ref: 'Task'
   }]
 }, { timestamps: true });

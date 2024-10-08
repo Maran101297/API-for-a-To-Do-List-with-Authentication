@@ -41,13 +41,8 @@ $(document).ready(function () {
             table.clear();
             tasks.forEach(task => {
                 table.row.add([
-                    `<span class="taskName">${task.task}</span><input type="text" class="taskInput" style="display:none;" value="${task.task}" />`,
+                    `<span class="taskName">${task.title}</span><input type="text" class="taskInput" style="display:none;" value="${task.title}" />`,
                     `<span class="taskDescription">${task.description}</span><input type="text" class="descriptionInput" style="display:none;" value="${task.description}" />`,
-                    `<span class="taskPriority">${task.priority}</span><select class="priorityInput" style="display:none;">
-                        <option value="Low" ${task.priority === 'Low' ? 'selected' : ''}>Low</option>
-                        <option value="Medium" ${task.priority === 'Medium' ? 'selected' : ''}>Medium</option>
-                        <option value="High" ${task.priority === 'High' ? 'selected' : ''}>High</option>
-                    </select>`,
                     `<span class="taskStatus">${task.status}</span><select class="statusInput" style="display:none;">
                         <option value="Pending" ${task.status === 'Pending' ? 'selected' : ''}>Pending</option>
                         <option value="Completed" ${task.status === 'Completed' ? 'selected' : ''}>Completed</option>
@@ -70,14 +65,13 @@ $(document).ready(function () {
     const token = localStorage.getItem('token');
 
     const taskData = {
-        task: $('#taskName').val(),
+        title: $('#taskName').val(),
         description: $('#taskDescription').val(),
-        priority: $('#taskPriority').val(),
     };
 
     try {
         // Use the fetchRequest function for the POST request
-        await fetchRequest('/api/todos/createData', 'POST', taskData, token);
+        await fetchRequest('/api/todos/createTask', 'POST', taskData, token);
         
         $('#createTaskForm')[0].reset(); // Clear the form
         fetchTasks(); // Refresh the task list
@@ -93,8 +87,8 @@ $(document).ready(function () {
         editingRowId = $(this).data('id'); // Store the task ID being edited
     
         // Show input fields for editing and hide static content
-        row.find('.taskInput, .descriptionInput, .priorityInput, .statusInput').show();
-        row.find('.taskName, .taskDescription, .taskPriority, .taskStatus').hide();
+        row.find('.taskInput, .descriptionInput, .statusInput').show();
+        row.find('.taskName, .taskDescription,  .taskStatus').hide();
     
         // Show Save button, hide Edit button
         row.find('.saveButton').show();
@@ -120,7 +114,7 @@ $(document).ready(function () {
             // Update the UI with the saved changes
             row.find('.taskName').text(updatedTask.task).show();
             row.find('.taskDescription').text(updatedTask.description).show();
-            row.find('.taskPriority').text(updatedTask.priority).show();
+
             row.find('.taskStatus').text(updatedTask.status).show(); // Show the updated status
     
             // Hide input fields

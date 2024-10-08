@@ -32,14 +32,14 @@
   <div class="text-center">
     <h2>Create a New Todo</h2>
     <form id="createTaskForm">
-        <input type="text" id="taskName" placeholder="Task Name" required autocomplete="off" />
-        <input type="text" id="taskDescription" placeholder="Task Description" required  autocomplete="off"/>
-        <select id="taskPriority" required>
+        <input type="text" id="taskName" placeholder="Enter title" required autocomplete="off" />
+        <input type="text" id="taskDescription" placeholder="Description" required  autocomplete="off"/>
+        <!-- <select id="taskPriority" required>
             <option value="">Select Priority</option>
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>
             <option value="High">High</option>
-        </select>
+        </select> -->
         <button type="submit" class="btn btn-primary">Add Task</button>
     </form>
 </div>
@@ -48,9 +48,9 @@
     <table id="taskTable" class="display">
         <thead>
             <tr>
-                <th>Task</th>
-                <th>Task Details</th>
-                <th>Priority</th>
+                <th>Title</th>
+                <th>Description</th>
+                <!-- <th>Priority</th> -->
                 <th>Status</th>
                 <th>Action</th>
             </tr>

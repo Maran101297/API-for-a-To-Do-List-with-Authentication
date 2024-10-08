@@ -17,10 +17,8 @@
     router.post('/verifyOtp', AuthController.verifyOtp);
 
 
-    // Protected route
+    // Protected route used as middleware of authorization
 router.get('/protected-route', protect, (req, res) => {
-
-    // res.json({ message: `Hello ${req.user.username}, you have accessed a protected route!` });
     res.json({
         username: req.user.username,
         email: req.user.email,

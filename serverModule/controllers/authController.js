@@ -15,7 +15,7 @@ module.exports = {
     },
     // POST /signup
 Register: async (req, res) => {
-    const { username, email, password, phoneCode, phone } = req.body;
+    const { username, email, password} = req.body;
 
     try {
         // Check if the user already exists by email
@@ -42,19 +42,17 @@ Register: async (req, res) => {
             username,
             email,
             password: hashedPassword,
-            phone: `+${phoneCode}${phone}`,
             otp: otp
         });
 
         const newUser = await user.save();
 
         // Generate JWT for the new user
-        const token = generateToken(newUser._id);
-        console.log(token);
+        // const token = generateToken(newUser._id);
+        // console.log(token);
         // Send response with the token
         res.status(201).json({
             message: 'User registered successfully',
-            token,
             user: {
                 id: newUser._id,
                 username: newUser.username,
@@ -117,7 +115,7 @@ signInForm: function(res, res){
                 return res.status(400).json({ message: 'Invalid email or password' });
             }
     
-            // Generate JWT token
+            // Generate JWT token for authentication
             const token = generateToken(user._id);
             // Send response with the token and user data
             res.json({
