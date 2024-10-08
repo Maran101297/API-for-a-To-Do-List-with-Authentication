@@ -25,4 +25,12 @@ The **Todo App** is a Node.js-based application designed to help users manage ta
 2. **Express.js**: A web framework used for building RESTful APIs.
 3. **MongoDB**: A NoSQL database for storing user and task information (utilizing MongoDB's free cloud database).
 4. **Mongoose**: An Object Data Modeling (ODM) library for managing MongoDB with Node.js.
+
+
+## Hosting Information
+The sample application has been created and hosted on AWS. Kindly use the following URL to access the Todo app Management System:
+
+Application URL: http://18.234.48.76:7030/api/todo-app
+
 ---
+
